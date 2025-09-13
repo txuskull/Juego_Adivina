@@ -3,67 +3,91 @@ fun main(){
     var record: Int? = null
 
     while (true) {
-        println("juego acierta el numero entre el 1 y 100")
-        var secreto = (1..100).random()
+
+        println("++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        println("==============JUEGO_ADIVINA_EL_NUMERO===============")
+        println("++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        println("Elige dificultad: 1 = Fácil, 2 = Normal, 3 = Difícil")
+        println("++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        println("++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        val nivel = readln().toInt()
+
+        val rangoMaximo: Int
+        val intentosMaximos: Int
+
+        when(nivel){
+            1 -> { rangoMaximo = 50; intentosMaximos = 15}
+            2 -> { rangoMaximo = 100; intentosMaximos = 10}
+            3 -> { rangoMaximo = 500; intentosMaximos = 8}
+            else -> {
+                println("Opcion no valida, se usara dificultad NORMAL")
+                rangoMaximo = 100
+                intentosMaximos = 10
+            }
+        }
+
+        println("+++++++++++++++++++++EMPIEZA__EL__JUEGO++++++++++++++++++++")
+        println("Acierta el numero entre el 1 y $rangoMaximo")
+
+        var secreto = (1..rangoMaximo).random()
         var contador = 0
         val intentos = mutableListOf<Int>()
 
         while (true) {
 
-
-            println("inserta el numero que creas que es")
+            println("+++++++++++++++++++++++JUGANDO+++++++++++++++++++++++++++")
+            println("Inserta el numero que crees que es  || ([ 0 para salir ])")
             var numero = readln().toInt()
 
-            if (numero > 100 || numero < 0){
-                println("debes introducir un numero entre 0 y 100")
+            if (numero > rangoMaximo || numero < 0){
+                println("Debes introducir un numero entre 0 y $rangoMaximo")
                 continue
             }
 
             if (numero == 0) {
-                println("saliendo....")
+                println("SALIENDO....")
                 break
             }
             contador++
             intentos.add(numero)
 
-            if (numero == secreto) {
-                println("has ganado el numero era $secreto y lo has conseguido en $contador intentos")
+            if (numero == secreto) {//ACIERTOOO
+                println("Has ganado el numero era $secreto y lo has conseguido en $contador intentos")
 
                 //Primera partida → record = null.
                 //Ganas en 4 intentos → record == null se cumple → se guarda record = 4.
                 if (record == null || record > contador){
                     record = contador
-                    println("nuevo record conseguido en $contador intentos")
+                    println("Nuevo record conseguido en $contador intentos")
                 }else{
-                    println("tu record actual sigue siendo en  $record intentos")
+                    println("Tu record actual sigue siendo en  $record intentos")
                 }
-                println("📜 Tus intentos fueron: $intentos")
+                println("Tus intentos fueron: $intentos")
                 break
 
-            } else if (numero < secreto) {
+            } else if (numero < secreto ) {
                 println("El numero es mayor")
 
             } else {
-                println("el numero es menor")
+                println("El numero es menor")
 
             }
-            if (contador == 10) {
-                println("Has perdido 😢, máximo 5 intentos. El número era $secreto")
+            if (contador == intentosMaximos) {
+                println("Has perdido, máximo $intentosMaximos intentos. El número era $secreto")
+                println("Tus numeros fueron: $intentos")
                 break
             }
 
 
         }
-
-        println("quieres volver a jugar otra vez? (s/n)")
+        //+++++++++++++++++++++++FIN++++++++++++++++++++++++
+        println("Quieres volver a jugar otra vez? (s/n)")
         val respuesta = readln().lowercase()
         if (respuesta != "s") {
-            println("hasta la proxima")
+            println("Hasta la proxima")
             break
-
         } else {
-            println("vamos alla")
-
+            println("Vamos alla")
         }
     }
 }
