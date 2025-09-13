@@ -1,32 +1,21 @@
-### IntelliJ IDEA ###
+# ==============================
+# IntelliJ IDEA / JetBrains
+# ==============================
+.idea/
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+*.iml
 
-### Kotlin ###
+# ==============================
+# Kotlin
+# ==============================
 .kotlin
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/
-
-### Mac OS ###
+# ==============================
+# MacOS (si usas Mac)
+# ==============================
 .DS_Store
+
+# ==============================
+# Logs y temporales
+# ==============================
+*.log
