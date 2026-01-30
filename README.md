@@ -24,18 +24,4 @@ Este repositorio contiene una implementación inicial del "Juego Adivina" en Kot
 - Añadir tests unitarios (JUnit 5 o Kotest).
 - Añadir linters (ktlint/detekt) y ejecutarlos en CI.
 
-## Limpieza de archivos de IDE
-Este repo no debe contener archivos de configuración del IDE. Asegúrate de añadir `.idea/` y `*.iml` al .gitignore. Si ya están versionados, ejecuta en tu máquina:
 
-```
-git rm --cached -r .idea PRUEBAS_KOTLIN.iml || true
-git add .gitignore README.md
-git commit -m "cleanup: remove IDE files, add .gitignore and README"
-git push --set-upstream origin cleanup-readme-gitignore
-```
-
-## Contribuciones
-Si quieres contribuir, abre un issue o envía un pull request. Incluye tests para nuevas funcionalidades.
-
-## Licencia
-Actualmente no hay licencia en este repositorio. Si quieres, puedo añadir la licencia MIT más adelante.
